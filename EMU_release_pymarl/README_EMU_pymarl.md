@@ -105,10 +105,10 @@ Code licensed under the Apache License v2.0
 ## Citing EMU 
 If you find this repository useful, please cite our paper:
 ```
-@inproceedings{na2023efficient,
+@inproceedings{na2024efficient,
   title={Efficient Episodic Memory Utilization of Cooperative Multi-Agent Reinforcement Learning},
   author={Na, Hyungho and Seo, Yunkyeong and Moon, Il-chul},
   journal={The Twelfth International Conference on Learning Representations},
-  year={2023}
+  year={2024}
 }
 ```
