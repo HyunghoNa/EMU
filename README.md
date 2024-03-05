@@ -25,10 +25,10 @@ For EMU(CDS), please change config file to EMU_grf_cds.
 # Publication
 If you find this repository useful, please cite our paper:
 ```
-@inproceedings{na2023efficient,
+@inproceedings{na2024efficient,
   title={Efficient Episodic Memory Utilization of Cooperative Multi-Agent Reinforcement Learning},
   author={Na, Hyungho and Seo, Yunkyeong and Moon, Il-chul},
   booktitle={The Twelfth International Conference on Learning Representations},
-  year={2023}
+  year={2024}
 }
 ```
