@@ -1,0 +1,149 @@
+# --- Qatten specific parameters ---
+
+# use epsilon greedy action selector
+action_selector: "epsilon_greedy"
+epsilon_start: 1.0
+epsilon_finish: 0.05
+#epsilon_anneal_time: 200000
+
+runner: "episode"
+
+buffer_size: 5000
+
+# update the target network every {} episodes
+target_update_interval: 200
+
+# use the Q_Learner to train
+agent_output_type: "q"
+learner: "qplex_curiosity_vdn_learner_cds"
+double_q: True
+mixer: "dmaq_qatten"
+mixing_embed_dim: 32
+hypernet_embed: 64
+adv_hypernet_layers: 1
+adv_hypernet_embed: 64
+
+num_kernel: 4
+is_minus_one: True
+is_adv_attention: True
+is_stop_gradient: True
+
+#.. added for EMU ---------------------------------
+
+#.. hypers-parameter
+ec_buffer_stats_update_interval   : 200 #200
+ec_buffer_embedder_update_interval: 10000  # 10000
+emb_training_batch                : 102400 # 102400 (10% sample)
+emb_training_mini_batch           : 1024
+t_EC_update                       : 0
+buffer_size_update                : 5000 # shuold be smaller than buffer_size
+
+rtol_memory  : 0.00001    # default: 1e-5
+atol_memory  : 0.00000001 # default: 1e-8
+
+#.. control variables
+memory_emb_type     : 3      # memory construction based on - 1: x_dim + random projection, 2: state (global) + embedding function, 3: state (global) + embedding with reconstruuction loss
+emb_out_type        : 3      # 1: FC, 2: tanh, 3: LayerNorm (for memory_emb_tpye==2 only)
+encoder_type        : 1      # 1: FC encoder, 2: VAE        (for memory_emb_tpye==3 only)
+use_AEM             : True   # True: proposed model(opt-propagation + memory shift), False: EMC model
+flag_stats_norm     : True   # True: use normalized value for Episodic memory searching
+delta_cover_type    : 1      # 1: positive 2sigma (1.6e-5), 2: +/- 3sigma (1.3e-3)
+fixed_delta         : False  # for parametric study of atol/rtol
+additional_update   : True   # True: conduct additional update for EM with replay buffer data 
+optimality_incentive: False  # True: applying optimality incentive (discard episodic control error)
+optimality_type     : 1      # 1: expected value, 2: optimistic value
+
+# for memory_emb_tpye==3 only
+lambda_s         : 0.1
+lambda_kl        : 0.0001
+#--------------------------------------------------
+
+# Qatten coefficient
+n_head: 4 # attention head number
+attend_reg_coef: 0.001 # attention regulation coefficient  # For MMM2 and 3s5z_vs_3s6z, it is 0.001
+state_bias: True # the constant value cs in the paper
+mask_dead: False
+weighted_head: False # weighted head Q-values, for MMM2 and 3s5z_vs_3s6z, it is True
+nonlinear: False # non-linearity, for MMM2, it is True
+
+num_circle: 1
+
+# --- Agent parameters for cds ---
+agent: "rnn_sd" # Default rnn agent
+rnn_hidden_dim: 64 # Size of hidden state for default rnn agent
+obs_agent_id: False # Include the agent's one_hot id in the observation
+obs_last_action: True # Include the agent's last action (one_hot) in the observation
+mac: "basic_mac_cds" # Basic controller (cds)
+#----------------------------------
+
+# --- hyper parameters for cds ---
+
+##.. corridor
+#beta1: .5
+#beta2: .5
+#beta: .1
+#anneal: True
+#anneal_rate: 5.
+#epsilon_anneal_time: 50000
+
+##.. MMM2
+#beta1: 2.
+#beta2: 1.
+#beta: .07
+#anneal: False
+#anneal_rate: 3.
+#epsilon_anneal_time: 500000
+
+###.. 6h_vs_8z
+#beta1: 2.
+#beta2: 1.
+#beta: .1
+#anneal: False
+#anneal_rate: 3.
+#epsilon_anneal_time: 500000
+
+##.. 3s5z_vs_3s6z
+beta1: 2.
+beta2: 1.
+beta: .03
+anneal: False
+anneal_rate: 3.
+epsilon_anneal_time: 500000
+# --------------------------------
+
+burn_in_period: 100
+
+curiosity_scale: 0.00
+curiosity_decay: True
+curiosity_decay_rate: 0.95
+curiosity_decay_cycle: 100000
+curiosity_decay_stop: 0.01
+
+
+
+
+save_buffer: False
+
+
+
+
+#mac: "fast_mac"
+#agent: "rnn_individualQ"
+#use_individual_Q: True
+#agent: "rnn_fast"
+use_individual_Q: False
+individual_q_loss_weight: 0.01
+
+is_prioritized_buffer: False
+use_emdqn: True
+emdqn_loss_weight: 0.1
+
+emdqn_buffer_size: 1000000
+emdqn_latent_dim: 4
+
+soft_update_tau: 0.005
+vdn_soft_update: True
+predict_vdn_target: True
+predict2_vdn_target: True
+use_qtotal_td: False
+name: "EMU_sc2_hard"

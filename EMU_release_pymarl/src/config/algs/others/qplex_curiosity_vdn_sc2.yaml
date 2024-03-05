@@ -1,0 +1,79 @@
+# --- Qatten specific parameters ---
+
+# use epsilon greedy action selector
+action_selector: "epsilon_greedy"
+epsilon_start: 1.0
+epsilon_finish: 0.05
+epsilon_anneal_time: 50000
+
+runner: "episode"
+
+buffer_size: 5000
+
+# update the target network every {} episodes
+target_update_interval: 200
+
+# use the Q_Learner to train
+agent_output_type: "q"
+learner: "qplex_curiosity_vdn_learner"
+double_q: True
+mixer: "dmaq_qatten"
+mixing_embed_dim: 32
+hypernet_embed: 64
+adv_hypernet_layers: 1
+adv_hypernet_embed: 64
+
+num_kernel: 4
+is_minus_one: True
+is_adv_attention: True
+is_stop_gradient: True
+
+# Qatten coefficient
+n_head: 4
+attend_reg_coef: 0.001
+state_bias: True
+mask_dead: False
+weighted_head: False
+nonlinear: False
+
+num_circle: 2
+
+curiosity_scale: 0.05
+curiosity_decay: True
+curiosity_decay_rate: 0.8
+curiosity_decay_cycle: 200000
+curiosity_decay_stop: 0.0
+
+curiosity2_scale: 0.
+curiosity2_decay: False
+curiosity2_decay_rate: 0.85
+curiosity2_decay_cycle: 200000
+curiosity2_decay_stop: 0.01
+
+use_double_predict: True
+
+save_buffer: False
+
+
+
+
+mac: "fast_mac"
+#agent: "rnn_individualQ"
+#use_individual_Q: True
+agent: "rnn_fast"
+use_individual_Q: False
+individual_q_loss_weight: 0.01
+
+is_prioritized_buffer: False
+use_emdqn: False
+emdqn_loss_weight: 0.01
+
+emdqn_buffer_size: 1000000
+emdqn_latent_dim: 4
+
+soft_update_tau: 0.005
+vdn_soft_update: True
+predict_vdn_target: True
+predict2_vdn_target: True
+use_qtotal_td: False
+name: "qplex_curiosity_vdn_sc2"

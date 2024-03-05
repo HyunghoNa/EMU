@@ -1,0 +1,61 @@
+# --- VDN specific parameters ---
+
+# use epsilon greedy action selector
+action_selector: "epsilon_greedy"
+epsilon_start: 1.0
+epsilon_finish: 0.05
+epsilon_anneal_time: 50000
+
+runner: "episode"
+
+buffer_size: 5000
+
+# update the target network every {} episodes
+target_update_interval: 200
+
+# use the Q_Learner to train
+agent_output_type: "q"
+learner: "fast_QLearner"
+double_q: True
+mixer: "vdn"
+gamma: 0.9
+
+use_double_predict: True
+
+
+curiosity_scale: 0.1
+curiosity_decay: True
+curiosity_decay_rate: 0.9
+curiosity_decay_cycle: 5000
+curiosity_decay_stop: 0.01
+
+curiosity2_scale: 0.
+curiosity2_decay: False
+curiosity2_decay_rate: 0.95
+curiosity2_decay_cycle: 5000
+curiosity2_decay_stop: 0.01
+
+
+save_buffer: False
+save_buffer_cycle: 500
+save_buffer_path: "./results/heatmap/heatmap_buffer_0816/"
+
+
+mac: "fast_mac"
+agent: "rnn_fast"
+is_prioritized_buffer: True
+
+use_emdqn: False
+emdqn_loss_weight: 0.01
+
+emdqn_buffer_size: 1000000
+emdqn_latent_dim: 4
+q_loss_weight: 1
+
+soft_update_tau: 0.005
+vdn_soft_update: True
+predict_vdn_target: True
+predict2_vdn_target: True
+use_qtotal_td: False
+
+name: "vdn_curiosity_vdn"
