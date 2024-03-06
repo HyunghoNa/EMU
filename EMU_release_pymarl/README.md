@@ -1,4 +1,4 @@
-# Efficient episodic Memory Utilization for Multi-agent Reinforcement Learning
+# Efficient episodic Memory Utilization of Multi-agent Reinforcement Learning
 
 ## Python MARL framework
 
