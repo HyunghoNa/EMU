@@ -5,9 +5,9 @@ This codebase accompanies the paper submission "**Efficient Episodic Memory Util
 The paper is now available in [OpenReview](https://openreview.net/forum?id=LjivA1SLZ6) and [arXiv](https://arxiv.org/abs/2403.01112).
 
 PyMARL is [WhiRL](http://whirl.cs.ox.ac.uk)'s framework for deep multi-agent reinforcement learning and our code includes implementations of the following algorithms:
-- [**QPLEX**: QPLEX: Duplex Dueling Multi-Agent Q-Learning](https://arxiv.org/pdf/2008.01062)
-- [**EMC**: EMC: Episodic Multi-agent Reinforcement Learning with Curiosity-driven Exploration](https://arxiv.org/abs/2111.11032)
-- [**CDS**: CDS: Celebrating Diversity in Shared Multi-Agent Reinforcement Learning](https://arxiv.org/abs/2106.02195)
+- [**QPLEX**: Duplex Dueling Multi-Agent Q-Learning](https://arxiv.org/pdf/2008.01062)
+- [**EMC**: Episodic Multi-agent Reinforcement Learning with Curiosity-driven Exploration](https://arxiv.org/abs/2111.11032)
+- [**CDS**: Celebrating Diversity in Shared Multi-Agent Reinforcement Learning](https://arxiv.org/abs/2106.02195)
 
 # Run an experiment
 To train EMU(QPLEX) on SC2 setting tasks, run the following command:
