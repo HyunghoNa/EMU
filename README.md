@@ -10,6 +10,8 @@ PyMARL is [WhiRL](http://whirl.cs.ox.ac.uk)'s framework for deep multi-agent rei
 - [**CDS**: Celebrating Diversity in Shared Multi-Agent Reinforcement Learning](https://arxiv.org/abs/2106.02195)
 
 # Run an experiment
+
+**Note: Please use the updated configuration file for experiments. We have corrected some errors in the previously uploaded configurations.**
 To train EMU(QPLEX) on SC2 setting tasks, run the following command:
 ```
 python3 src/main.py --config=EMU_sc2 --env-config=sc2 with env_args.map_name=5m_vs_6m
@@ -21,7 +23,6 @@ To train EMU(QPLEX) on SC2 setting tasks, run the following command:
 python3 src/main.py --config=EMU_grf --env-config=academy_3_vs_1_with_keeper
 ```
 For EMU(CDS), please change config file to EMU_grf_cds. 
-(Note: please set optimality_incentive=True for episodic incentive in EMU_CDS configurations. We will update the default configuration soon.)
 
 # Publication
 If you find this repository useful, please cite our paper:
