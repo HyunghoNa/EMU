@@ -47,17 +47,17 @@ emb_out_type        : 3      # 1: FC, 2: tanh, 3: LayerNorm (for memory_emb_tpye
 encoder_type        : 1      # 1: FC encoder, 2: VAE        (for memory_emb_tpye==3 only)
 use_AEM             : True   # True: proposed model(opt-propagation + memory shift), False: EMC model
 flag_stats_norm     : True   # True: use normalized value for Episodic memory searching
-delta_cover_type    : 1      # 1: positive 2sigma (1.6e-5), 2: +/- 3sigma (1.3e-3)
-fixed_delta         : False  # for parametric study of atol/rtol
+delta_cover_type    : 1      # 1: positive 2sigma (1.6e-5), 2: +/- 3sigma (1.3e-3) (not used for fixed delta)
+fixed_delta         : True   # for parametric study of atol/rtol
 additional_update   : True   # True: conduct additional update for EM with replay buffer data 
-optimality_incentive: False  # True: applying optimality incentive (discard episodic control error)
+optimality_incentive: True   # True: applying optimality incentive (discard episodic control error)
 optimality_type     : 1      # 1: expected value, 2: optimistic value
 flag_memory_cnt_reset: False  # False (default)
 flag_init_desirability: False # False (default) - consider desirability when adding an edge
-
+  
 # for memory_emb_tpye==3 only
 lambda_s         : 0.1
-lambda_kl        : 0.0001
+lambda_kl        : 0.0001    # only used when encoder_type=2
 #--------------------------------------------------
 
 # Qatten coefficient
@@ -80,20 +80,6 @@ mac: "basic_mac_cds" # Basic controller (cds)
 
 # --- hyper parameters for cds ---
 
-##.. corridor
-#beta1: .5
-#beta2: .5
-#beta: .1
-#anneal: True
-#anneal_rate: 5.
-
-##.. MMM2
-#beta1: 2.
-#beta2: 1.
-#beta: .07
-#anneal: False
-#anneal_rate: 3.
-
 ##.. 6h_vs_8z
 beta1: 2.
 beta2: 1.
@@ -101,14 +87,6 @@ beta: .1
 anneal: False
 anneal_rate: 3.
 epsilon_anneal_time: 500000
-
-##.. 3s5z_vs_3s6z
-#beta1: 2.
-#beta2: 1.
-#beta: .03
-#anneal: False
-#anneal_rate: 3.
-
 # --------------------------------
 
 burn_in_period: 100

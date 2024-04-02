@@ -57,7 +57,7 @@ flag_init_desirability: False # False (default) - consider desirability when add
   
 # for memory_emb_tpye==3 only
 lambda_s         : 0.1
-lambda_kl        : 0.0001
+lambda_kl        : 0.0001    # only used when encoder_type=2
 #--------------------------------------------------
 
 # Qatten coefficient
@@ -80,43 +80,7 @@ epsilon_anneal_time: 50000
 weighted_head: True # weighted head Q-values, for MMM2 and 3s5z_vs_3s6z, it is True
 nonlinear: True # non-linearity, for MMM2, it is True
 
-##.. 3s5z_vs_3s6z
-#curiosity_scale: 0.08
-#curiosity_decay: True
-#curiosity_decay_rate: 0.95
-#curiosity_decay_cycle: 100000
-#curiosity_decay_stop: 0.01
-#epsilon_anneal_time: 200000
-#weighted_head: True # weighted head Q-values, for MMM2 and 3s5z_vs_3s6z, it is True
-#nonlinear: False # non-linearity, for MMM2, it is True
-
-
-##.. 6h_vs_8z
-#curiosity_scale: 0.2
-#curiosity_decay: True
-#curiosity_decay_rate: 0.9
-#curiosity_decay_cycle: 200000
-#curiosity_decay_stop: 0.01
-#epsilon_anneal_time: 50000
-#weighted_head: False # weighted head Q-values, for MMM2 and 3s5z_vs_3s6z, it is True
-#nonlinear: False # non-linearity, for MMM2, it is True
-
-
-##.. corridor
-#curiosity_scale: 0.1
-#curiosity_decay: True
-#curiosity_decay_rate: 0.8
-#curiosity_decay_cycle: 200000
-#curiosity_decay_stop: 0.01
-#epsilon_anneal_time: 50000
-#weighted_head: False # weighted head Q-values, for MMM2 and 3s5z_vs_3s6z, it is True
-#nonlinear: False # non-linearity, for MMM2, it is True
-
-
 save_buffer: False
-
-
-
 
 mac: "fast_mac"
 #agent: "rnn_individualQ"

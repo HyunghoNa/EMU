@@ -37,8 +37,8 @@ emb_training_mini_batch           : 1024
 t_EC_update                       : 0
 buffer_size_update                : 5000 # shuold be smaller than buffer_size
 
-rtol_memory  : 0.00001    # default: 1e-5
-atol_memory  : 0.00000001 # default: 1e-8
+rtol_memory  : 0.0        # default: 0.0
+atol_memory  : 0.0013     # default: 1.3e-3
 
 #.. control variables
 memory_emb_type     : 3      # memory construction based on - 1: x_dim + random projection, 2: state (global) + embedding function, 3: state (global) + embedding with reconstruuction loss
@@ -84,12 +84,7 @@ curiosity_decay_rate: 0.9
 curiosity_decay_cycle: 100000
 curiosity_decay_stop: 0.0
 
-
-
 save_buffer: False
-
-
-
 
 mac: "fast_mac"
 #agent: "rnn_individualQ"
