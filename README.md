@@ -30,7 +30,7 @@ If you find this repository useful, please cite our paper:
 @inproceedings{na2024efficient,
   title={Efficient Episodic Memory Utilization of Cooperative Multi-Agent Reinforcement Learning},
   author={Na, Hyungho and Seo, Yunkyeong and Moon, Il-chul},
-  booktitle={The Twelfth International Conference on Learning Representations},
+  booktitle={arXiv preprint arXiv:2403.01112},
   year={2024}
 }
 ```
